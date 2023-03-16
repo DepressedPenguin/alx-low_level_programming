@@ -1,12 +1,12 @@
 #!/bin/bash
 #include <stdio.h>
 /**
-*puts function
-*Return0
-*/
-
+ * main | Using puts function
+ * Return : 0
+ /
 int main(void)
 {
-    puts(""Programming is like building a multilingual puzzle");
-            return (0);
+/Puts is designed to print strings to the console*/
+puts(""Programming is like building a multilingual puzzle");
+return (0);
 }
