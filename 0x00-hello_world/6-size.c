@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - the size of various types on the computer
+ * main - the size of various
  *
- * Return 0
+ * Return:0
  */
 int main(void)
 {
