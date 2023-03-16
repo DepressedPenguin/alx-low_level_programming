@@ -3,7 +3,7 @@
 /**
  * main - the size of various types on the computer
  *
- * Return0
+ * Return 0
  */
 int main(void)
 {
