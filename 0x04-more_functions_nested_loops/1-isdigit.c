@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _islower - checks if a digit or otherwise in ASCII
+ * _isdigit - checks if a digit or otherwise in ASCII
  * @c: the character to check
  *
  * Return: 1 if c is a digit, 0 otherwise
