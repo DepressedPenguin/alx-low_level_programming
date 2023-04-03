@@ -8,7 +8,7 @@
 
 char *_strchr(char *s, char c)
 {
-while (*s != 'o')
+while (*s != '\0')
 {
 if (*s == c)
 {
@@ -16,7 +16,7 @@ return (s);
 }
 s++;
 }
-if (c == 'o')
+if (c == '\0')
 {
 return (s);
 }
