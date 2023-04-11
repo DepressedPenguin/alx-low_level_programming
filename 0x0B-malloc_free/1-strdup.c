@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * *_strdup - function that returns a pointer .
+ * *_strdup - function that returns a pointer.
  * @str: string will be copied
  *
  * Return: 0 or ptr.
@@ -13,18 +13,23 @@
 char *_strdup(char *str)
 
 {
-char *copy_s = (char *) malloc(10);
-
+char *copy_s;
+int x;
+int y;
 if (str == NULL)
-
 {
-return (NULL);
+return (0);
 }
-
-else
+for (x = 0; str[x] != '\0'; x++)
 {
-_strcpy(copy_s, str);
+}
+copy_s = malloc((x + 1) * sizeof(char));
+if(copy_s == NULL){
+return (0);
+}
+for (y = 0; y <= x; y++)
+{
+copy_s[y] = str[y];
+}
 return (copy_s);
-}
-
 }
