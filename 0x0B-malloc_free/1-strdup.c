@@ -24,7 +24,8 @@ for (x = 0; str[x] != '\0'; x++)
 {
 }
 copy_s = malloc((x + 1) * sizeof(char));
-if(copy_s == NULL){
+if (copy_s == NULL)
+{
 return (0);
 }
 for (y = 0; y <= x; y++)
