@@ -3,6 +3,7 @@
  * *string_nconcat - function that concatenates two strings.
  * @s1: s1 string
  * @s2: s2 string
+ * @n: is unsigned int
  * Return: 0
  */
 
