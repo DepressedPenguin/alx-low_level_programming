@@ -28,5 +28,6 @@ else if (x < n - 1)
 printf("%s", separator);
 }
 }
+printf("\n");
 va_end(argsc);
 }
