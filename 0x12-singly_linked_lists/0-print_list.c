@@ -23,6 +23,7 @@ else
 printf("[0] (nil)\n");
 
 h = h->next;
+count++;
 }
 return (count);
 }
