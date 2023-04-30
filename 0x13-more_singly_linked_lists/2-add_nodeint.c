@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -9,7 +7,7 @@
  * @n: The integer      //zakaria elaroussi
  *
  * Return: If the function fails - NULL or add new element
- *        
+ *
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
