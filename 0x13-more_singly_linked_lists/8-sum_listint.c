@@ -17,5 +17,5 @@ sumthem += cu->n;
 cu = cu->next;
 }
 
-return sumthem;
+return (sumthem);
 }
