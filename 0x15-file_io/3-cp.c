@@ -10,11 +10,11 @@
 #define BUFFER_SIZE 1024
 
 /**
- * print_error_and_exit - Prints an error message to the standard
+ * print_error_and_exit - Prints an error messa //zakaria elaroussi
  *                        error and exits the program.
- * @exit_code: The exit code to use when terminating the program.
- * @format: The format string for the error message.
- * @...: Additional arguments for the format string.
+ * @exit_code: The exit code 
+ * @format: The format string 
+ * @...: Additional arguments
  */
 void print_error_and_exit(int exit_code, const char *format, ...)
 {
@@ -28,51 +28,44 @@ void print_error_and_exit(int exit_code, const char *format, ...)
 }
 
 /**
- * main - Copies the content of a file to another file.
- * @argc: The number of command-line arguments.
- * @argv: An array of command-line argument strings.
+ * main - Copies the content.
+ * @argc: The number of command.
+ * @argv: An array of command-line
  *
- * Return: 0 on success, or an exit code on failure.
+ * Return: 0 on success, or an exit
  */
 int main(int argc, char *argv[])
 {
-int src_fd, dest_fd, bytes_read, bytes_written;
-char buffer[BUFFER_SIZE];
-mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	int file_from, file_to, bytes_read, bytes_written;
+	char buffer[BUFFER_SIZE];
+	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
-/* Check if the correct number of arguments was provided */
-if (argc != 3)
-print_error_and_exit(97, "Usage: cp file_from file_to\n");
+	if (argc != 3)
+		print_error_and_exit(97, "Usage: cp file_from file_to\n");
 
-/* Open the source file for reading */
-src_fd = open(argv[1], O_RDONLY);
-if (src_fd == -1)
-print_error_and_exit(98, "Error: Can't read from file %s\n", argv[1]);
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1)
+		print_error_and_exit(98, "Error: Can't read from file %s\n", argv[1]);
 
-/* Open the destination file for writing */
-dest_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
-if (dest_fd == -1)
-print_error_and_exit(99, "Error: Can't write to file %s\n", argv[2]);
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
+	if (file_to == -1)
+		print_error_and_exit(99, "Error: Can't write to %s\n", argv[2]);
 
-/* Copy the contents of the source file to the destination file */
-while ((bytes_read = read(src_fd, buffer, BUFFER_SIZE)) > 0)
-{
-bytes_written = write(dest_fd, buffer, bytes_read);
-if (bytes_written == -1)
-print_error_and_exit(99, "Error: Can't write to file %s\n", argv[2]);
+	while ((bytes_read = read(file_from, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytes_written = write(file_to, buffer, bytes_read);
+		if (bytes_written == -1)
+			print_error_and_exit(99, "Error: Can't write to %s\n", argv[2]);
+	}
+
+	if (bytes_read == -1)
+		print_error_and_exit(98, "Error: Can't read from file %s\n", argv[1]);
+
+	if (close(file_from) == -1)
+		print_error_and_exit(100, "Error: Can't close fd %d\n", file_from);
+
+	if (close(file_to) == -1)
+		print_error_and_exit(100, "Error: Can't close fd %d\n", file_to);
+
+	return (0);
 }
-
-/* Check if any errors occurred during reading from the source file */
-if (bytes_read == -1)
-print_error_and_exit(98, "Error: Can't read from file %s\n", argv[1]);
-
-/* Close both the source and destination file descriptors */
-if (close(src_fd) == -1)
-print_error_and_exit(100, "Error: Can't close file descriptor %d\n", src_fd);
-
-if (close(dest_fd) == -1)
-print_error_and_exit(100, "Error: Can't close file descriptor %d\n", dest_fd);
-
-return (0);
-}
-
