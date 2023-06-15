@@ -1,18 +1,21 @@
 #include "lists.h"
+#include "lists.h"
 
 /**
- * dlistint_len - Returns the number of elements.
- * @h: Pointer to the head of the list
- *
- * Return: The number of elements.
- */
+* dlistint_len - Returns the number.
+* @h: Pointer to the head of the list
+* Return: The number of elements in the list
+*/
 size_t dlistint_len(const dlistint_t *h)
 {
+const dlistint_t *current = h;
 size_t count = 0;
-while (h != NULL)
+
+while (current != NULL)
 {
 count++;
-h = h->next;
+current = current->next;
 }
-return count;
+
+return (count);
 }
